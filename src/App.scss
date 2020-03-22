@@ -1,0 +1,11 @@
+@import './theme/theme';
+
+.modal-filters {
+  min-width: 500px;
+  padding: 20px;
+  border-radius: $border-radius / 2;
+
+  @media screen and (max-width: 600px) {
+    min-width: 300px;
+  }
+}

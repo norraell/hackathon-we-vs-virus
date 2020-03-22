@@ -1,0 +1,16 @@
+/* 0px */
+/* 480px */
+/* 1024px */
+/* 1200px */
+.modal-filters {
+  min-width: 500px;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+@media screen and (max-width: 600px) {
+  .modal-filters {
+    min-width: 300px;
+  }
+}
+/*# sourceMappingURL=App.css.map */

@@ -1,0 +1,23 @@
+@import url("https://fonts.googleapis.com/css2?family=Forum&family=Jura:wght@515&display=swap");
+/* 0px */
+/* 480px */
+/* 1024px */
+/* 1200px */
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Jura", "Segoe UI", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 13px;
+}
+
+@media only screen and (max-width: 600px) {
+  body {
+    font-size: 9px;
+  }
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+/*# sourceMappingURL=index.css.map */
