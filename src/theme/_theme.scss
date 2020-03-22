@@ -12,7 +12,7 @@ $breakpoint-md: 64em; /* 1024px */
 $breakpoint-lg: 75em; /* 1200px */
 
 $color-primary: #6d9197;
-$color-secondary: #c4cd41;
+$color-secondary: #c4cdc1;
 $color-dark: #28364d;
 $color-light: #dee1dd;
 $color-infected: #2f575d;
@@ -21,3 +21,6 @@ $color-deaths: #99aead;
 
 $border-radius: 20px;
 $border-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+
+$lenghts-navigation-offset: 35px;
+$lenghts-navigation-height: 90vh;

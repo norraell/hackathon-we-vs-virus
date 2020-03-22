@@ -17,7 +17,7 @@ const theme = {
   },
   color: {
     primary: "#6d9197",
-    secondary: "#c4cd41",
+    secondary: "#c4cdc1",
     dark: "#28364d",
     light: "#dee1dd",
     infected: "#2f575d",
@@ -27,6 +27,12 @@ const theme = {
   border: {
     radius: '20px',
     boxShadow: '0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23)',
+  },
+  lenghts: {
+    navigation: {
+      offset: '35px',
+      height: '90vh',
+    },
   }
 }
 

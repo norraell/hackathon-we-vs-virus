@@ -1,10 +1,17 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { usePromiseTracker, trackPromise } from 'react-promise-tracker';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+} from 'react-router-dom';
 import Modal from 'react-responsive-modal';
 import Select from 'react-select';
+import Navigation from './components/navigation/navigation';
 import DataMap from './components/data-map/data-map';
 import DataPanel from './components/data-panel/data-panel';
 import Loader from './components/loader/loader';
+import Survey from './components/survey/survery';
 import { filterPropValuePair } from './utilities/data-mutations';
 //import { shiftDateBack } from './utilities/datetime';
 //import { dateString } from './utilities/formatting';
@@ -157,36 +164,55 @@ export default class App extends Component {
     const geoData = interfaceOutGeoJSON(filtered[currentTime]);
 
     return(
-      <div className="app">
-        <LoadingIndicator />
-        <Modal
-          open={filtersExpanded}
-          onClose={handleCollapseFilters}
-          classNames={{ modal: 'modal-filters' }}
-          center
-        >
-          <h2>Data filters</h2>
-          <Select
-            isMulti
-            name="countries"
-            options={registeredRegions}
-            defaultValue={filteredRegions}
-            onChange={setCountryFilter}
-          />
-        </Modal>
-        <DataPanel
-          data={filtered}
-          currentTime={currentTime}
-          chartsExpanded={chartsExpanded}
-          onToggleFilters={handleToggleFilters}
-          onToggleCharts={handleToggleCharts}
-        />
-        {geoData && <DataMap
-          data={geoData}
-          mapStyle={mapStyle}
-          onClick={handleCollapseCharts}
-        />}
-      </div>
+      <Router>
+        <div className="app">
+          <LoadingIndicator />
+          <Navigation />
+          <Switch>
+            <Route path="/">
+              <Modal
+                open={filtersExpanded}
+                onClose={handleCollapseFilters}
+                classNames={{ modal: 'modal-filters' }}
+                center
+              >
+                <h2>Data filters</h2>
+                <Select
+                  isMulti
+                  name="countries"
+                  options={registeredRegions}
+                  defaultValue={filteredRegions}
+                  onChange={setCountryFilter}
+                />
+              </Modal>
+              <DataPanel
+                data={filtered}
+                currentTime={currentTime}
+                chartsExpanded={chartsExpanded}
+                onToggleFilters={handleToggleFilters}
+                onToggleCharts={handleToggleCharts}
+              />
+              {geoData && <DataMap
+                data={geoData}
+                mapStyle={mapStyle}
+                onClick={handleCollapseCharts}
+              />}
+            </Route>
+            <Route path="/table">
+              <Fragment />
+            </Route>
+            <Route path="/survey">
+              <Survey />
+            </Route>
+            <Route path="/contact">
+              <Fragment />
+            </Route>
+            <Route path="/imprint">
+              <Fragment />
+            </Route>
+          </Switch>
+        </div>
+      </Router>
     );
   }
 }

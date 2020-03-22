@@ -37,7 +37,7 @@ const DataMap = ({ data, mapStyle, onClick }) => {
         <Layer {...circleLayer} />
         <Layer {...countLayer} />
       </Source>
-      <div style={{position: 'absolute', bottom: '40px', right: '20px'}}>
+      <div style={{position: 'absolute', bottom: '45px', right: '20px'}}>
         <NavigationControl />
       </div>
     </ReactMapGL>

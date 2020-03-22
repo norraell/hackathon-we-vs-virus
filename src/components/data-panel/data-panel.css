@@ -2,7 +2,7 @@
 /* 480px */
 /* 1024px */
 /* 1200px */
-.data-panel__tile {
+.data-panel__tile, .charts-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -14,12 +14,34 @@
           justify-content: center;
 }
 
+@-webkit-keyframes scale-in {
+  0%, 100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  50% {
+    -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+  }
+}
+
+@keyframes scale-in {
+  0%, 100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  50% {
+    -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+  }
+}
+
 .data-panel, .charts-container {
   position: fixed;
   top: 35px;
   left: 35px;
   width: 200px;
-  height: 90%;
+  height: 90vh;
   margin: 0 0 20px;
   padding: 0;
   background: #eee;
@@ -92,28 +114,6 @@
   font-size: .8rem;
 }
 
-@-webkit-keyframes scale-in {
-  0%, 100% {
-    -webkit-transform: scale(1);
-            transform: scale(1);
-  }
-  50% {
-    -webkit-transform: scale(1.1);
-            transform: scale(1.1);
-  }
-}
-
-@keyframes scale-in {
-  0%, 100% {
-    -webkit-transform: scale(1);
-            transform: scale(1);
-  }
-  50% {
-    -webkit-transform: scale(1.1);
-            transform: scale(1.1);
-  }
-}
-
 .data-panel__controls {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -141,7 +141,10 @@
 }
 
 .charts-container {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   width: 85%;
+  padding: 0 0 0 200px;
   -webkit-transform: scale(0, 1);
           transform: scale(0, 1);
   -webkit-transform-origin: 100px 0;
@@ -156,6 +159,10 @@
 .charts-container.expanded {
   -webkit-transform: scale(1, 1);
           transform: scale(1, 1);
+}
+
+.charts-container canvas {
+  width: 90%;
 }
 
 /*

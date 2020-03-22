@@ -1,8 +1,10 @@
 @import '../../theme/theme';
 @import '../../theme/placeholders';
+@import '../../theme/animations';
 
 $data-panel-width: 200px;
-$data-panel-offset : 35px;
+$data-panel-height: $lenghts-navigation-height;
+$data-panel-offset : $lenghts-navigation-offset;
 
 // TODO: remove shadow?
 
@@ -11,7 +13,7 @@ $data-panel-offset : 35px;
   top: $data-panel-offset;
   left: $data-panel-offset;
   width: $data-panel-width;
-  height: 90%;
+  height: $data-panel-height;
   margin: 0 0 20px;
   padding: 0;
   background: #eee;
@@ -75,11 +77,6 @@ $data-panel-offset : 35px;
   }
 }
 
-@keyframes scale-in {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.1); }
-}
-
 .data-panel__controls {
   display: flex;
   align-items: center;
@@ -102,7 +99,10 @@ $data-panel-offset : 35px;
 
 .charts-container {
   @extend %data-panel-base;
+  @extend %flex-centering;
+  box-sizing: border-box;
   width: 85%;
+  padding: 0 0 0 $data-panel-width;
   transform: scale(0, 1);
   transform-origin: 100px 0;
   z-index: 1;
@@ -110,6 +110,10 @@ $data-panel-offset : 35px;
 
   &.expanded {
     transform: scale(1, 1);
+  }
+
+  canvas {
+    width: 90%;
   }
 }
 

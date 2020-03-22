@@ -3,7 +3,8 @@
 /* 1024px */
 /* 1200px */
 .modal-filters {
-  min-width: 500px;
+  min-width: 550px;
+  min-height: 300px;
   padding: 20px;
   border-radius: 10px;
 }

@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react';
+import DataChart from './data-chart';
 import { condenseData } from '../../utilities/data-mutations';
 import { bigIntegerDisplay, percentageDisplay } from '../../utilities/formatting';
 import './data-panel.css';
@@ -27,7 +28,9 @@ const DataPanel = (props) => {
         <DataPanelTiles {...condensedDataCurrent} />
         <DataPanelControls {...controlHandlers} />
       </div>
-      <div className={clsCharts}></div>
+      <div className={clsCharts}>
+        <DataChart />
+      </div>
     </Fragment>
   );
 }
