@@ -12,24 +12,33 @@ const DataPanel = (props) => {
     onToggleFilters,
     onToggleCharts,
   } = props;
-  const confirmedValues = condenseData('confirmed', data),
-        recoveredValues = condenseData('recovered', data),
-        deathsValues = condenseData('deaths', data);
-  const condensedDataCurrent = {
-    confirmed: confirmedValues[currentTime],
-    recovered: recoveredValues[currentTime],
-    deaths: deathsValues[currentTime],
+  const isDataNotEmpty = !!Object.keys(data).length;
+  let condensedData, condensedDataCurrent;
+  if(isDataNotEmpty) {
+    const confirmedValues = condenseData('confirmed', data),
+          recoveredValues = condenseData('recovered', data),
+          deathsValues = condenseData('deaths', data);
+    condensedData = {
+      confirmed: {...confirmedValues},
+      recovered: {...recoveredValues},
+      deaths: {...deathsValues},
+    }
+    condensedDataCurrent = {
+      confirmed: confirmedValues[currentTime],
+      recovered: recoveredValues[currentTime],
+      deaths: deathsValues[currentTime],
+    }
   }
   const controlHandlers = { onToggleFilters, onToggleCharts }
   const clsCharts = `charts-container ${chartsExpanded ? 'expanded' : ''}`
   return(
     <Fragment>
       <div className="data-panel">
-        <DataPanelTiles {...condensedDataCurrent} />
+        {isDataNotEmpty && <DataPanelTiles {...condensedDataCurrent} />}
         <DataPanelControls {...controlHandlers} />
       </div>
       <div className={clsCharts}>
-        <DataChart />
+        {isDataNotEmpty && <DataChart data={condensedData} />}
       </div>
     </Fragment>
   );

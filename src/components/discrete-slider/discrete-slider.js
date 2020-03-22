@@ -81,11 +81,13 @@ export default class DiscreteSlider extends Component {
       if(D < snapRange) {
         value = option;
         isSnapped = true;
+        value = Number(value);
+        props.onChange(value);
         break;
       }
     }
-    value = Number(value);
-    props.onChange(value);
+    //value = Number(value);
+    //props.onChange(value);
     this.setState({
       value,
       isSnapped,

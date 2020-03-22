@@ -1,5 +1,16 @@
 import React, { Component } from 'react';
 import { Chart } from 'react-chartjs-2';
+import theme from '../../theme/theme';
+
+const generateDataset = (label, data, color) => {
+  return({
+    label,
+    data: Object.values(data),
+    borderColor: color,
+    backgroundColor: 'transparent',
+    borderWidth: 2,
+  })
+}
 
 export default class PingChart extends Component {
   constructor(props){
@@ -9,21 +20,21 @@ export default class PingChart extends Component {
   }
   
   componentDidMount() {
+    const { data } = this.props,
+          { confirmed, recovered, deaths } = data;
     this.chart = new Chart(this.node, {
       type: 'line',
       data: {
-        labels: [1, 2, 3, 4, 5, 6],
-        datasets: [{
-          label: 'Ping Numbers',
-          data: [50, 44, 30, 10, 100, 1],
-          borderColor: '#333',
-          backgroundColor: 'transparent',
-          borderWidth: 2
-        }]
+        labels: Object.keys(confirmed),
+        datasets: [
+          generateDataset('Confirmed', confirmed, theme.color.infected),
+          generateDataset('Recovered', recovered, theme.color.recovered),
+          generateDataset('Deaths', deaths, theme.color.deaths),
+        ]
       },
       options: {
         elements: {
-          point: { radius: 0}
+          point: { radius: 0 },
         },
         legend: { display: false },
         scales: {
@@ -34,7 +45,15 @@ export default class PingChart extends Component {
               beginAtZero: true,
             }
           }]
-        }
+        },
+        layout: {
+          padding: {
+            left: 25,
+            right: 25,
+            top: 40,
+            bottom: 40,
+          },
+        },
       }
     });
   }

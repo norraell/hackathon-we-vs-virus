@@ -18,11 +18,12 @@ const theme = {
   color: {
     primary: "#6d9197",
     secondary: "#c4cdc1",
+    tertiary: "99aead",
     dark: "#28364d",
     light: "#dee1dd",
     infected: "#2f575d",
     recovered: "#658b6f",
-    deaths: "#99aead"
+    deaths: "#f8b95f",
   },
   border: {
     radius: '20px',

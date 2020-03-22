@@ -1,7 +1,7 @@
 import React from 'react';
 import './loader.css';
 
-const Loader = () => {
+const MainLoader = () => {
   return(
     <div className="loader-wrapper">
       <div className="loader-title">CORONA hub</div>
@@ -12,4 +12,8 @@ const Loader = () => {
   );
 }
 
-export default Loader;
+export const CircularLoader = () => (
+  <div className="circular-loader"></div>
+);
+
+export default MainLoader;
