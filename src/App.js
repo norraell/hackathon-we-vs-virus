@@ -3,6 +3,7 @@ import { Router } from "@reach/router";
 import Navigation from './components/navigation/navigation';
 import Loader from './components/loader/loader';
 
+// TODO: set to 2000 when not in dev
 const __MIN__LOADINGTIME = 2000;
 const genLazyRoute = async (routeModule, timeMin = __MIN__LOADINGTIME) => {
   return Promise.all([

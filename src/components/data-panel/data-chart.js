@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Chart } from 'react-chartjs-2';
 import theme from '../../theme/theme';
 
+// TODO: data only til currentTime index
 const generateDataset = (label, data, color) => {
   return({
     label,

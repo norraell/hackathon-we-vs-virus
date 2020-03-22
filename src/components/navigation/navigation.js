@@ -2,6 +2,10 @@ import React, { Component, Fragment } from 'react';
 import { Link } from "@reach/router"
 import './navigation.css';
 
+const isActive = ({ isCurrent }) => {
+  return isCurrent ? { className: "active" } : {}
+}
+
 export default class Navigation extends Component {
   constructor() {
     super();
@@ -49,11 +53,11 @@ export default class Navigation extends Component {
         <nav className={clsNav}>
           <div className="navigation__brand">Corona<span>hub</span></div>
           <ul>
-            <li><HomeIcon /><Link to="/" activeClassName='active'>Home</Link></li>
-            <li><TableIcon /><Link to="/table" activeClassName='active'>Table</Link></li>
-            <li><SurveyIcon /><Link to="/survey" activeClassName='active'>Survey</Link></li>
-            <li><ContactIcon /><Link to="/contact" activeClassName='active'>Contact</Link></li>
-            <li><ImprintIcon /><Link to="/imprint" activeClassName='active'>Imprint</Link></li>
+            <li><HomeIcon /><Link to="/" getProps={isActive}>Home</Link></li>
+            <li><TableIcon /><Link to="/table" getProps={isActive}>Table</Link></li>
+            <li><SurveyIcon /><Link to="/survey" getProps={isActive}>Survey</Link></li>
+            <li><ContactIcon /><Link to="/contact" getProps={isActive}>Contact</Link></li>
+            <li><ImprintIcon /><Link to="/imprint" getProps={isActive}>Imprint</Link></li>
           </ul>
         </nav>
       </Fragment>

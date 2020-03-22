@@ -5,7 +5,7 @@ import Select from 'react-select';
 import DiscreteSlider from './components/discrete-slider/discrete-slider';
 import DataMap from './components/data-map/data-map';
 import DataPanel from './components/data-panel/data-panel';
-import { CircularLoader } from './components/loader/loader';
+//import { CircularLoader } from './components/loader/loader';
 import { filterPropValuePair } from './utilities/data-mutations';
 import { dateDisplay } from './utilities/formatting';
 import { interfaceOutGeoJSON } from './utilities/interfaces';
@@ -46,11 +46,12 @@ const getLiveData = async () => {
   return data;
 }
 
+/*
 const LoadingIndicator = () => {
   const { promiseInProgress } = usePromiseTracker({ delay: 250 });
-  console.log(promiseInProgress);
   return(promiseInProgress && <CircularLoader />);  
 }
+*/
 
 export default class Dashboard extends Component {
   constructor() {
@@ -182,8 +183,6 @@ export default class Dashboard extends Component {
     } = state;
   
     const timestamps = Object.keys(filtered);
-    console.log(timestamps[timestamps.length - 1]);
-    console.log(currentTime);
     const geoData = interfaceOutGeoJSON(filtered[currentTime]);
     
     return(
